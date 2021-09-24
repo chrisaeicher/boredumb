@@ -24,7 +24,7 @@ function App() {
     "key": "3136036"
   }])
   const [index, setIndex] = useState(0)
-
+  
   const setColors = () => {
     let randIndex = Math.floor(Math.random()*diceColors.length+1)
     while (topColor === topColors[randIndex]) {
@@ -35,15 +35,18 @@ function App() {
     setDiceColor(diceColors[randIndex])
   }
 
-  useEffect(() => {
-      fetch('http://www.boredapi.com/api/activity/')
-      .then(res => res.json())
-      .then(data => {
-        setActivity(data)
-        setLoading(false)
-      })
-      .catch(err => console.log(err))
-    }, [activities])
+  const fetchRandActivity = () => {
+    fetch('http://www.boredapi.com/api/activity/')
+    .then(res => res.json())
+    .then(data => {
+      setActivity(data)
+      setLoading(false)
+    })
+    .catch(err => console.log(err))
+  }
+
+
+  useEffect(fetchRandActivity, [activities])
 
   const nextActivity = () => {
     console.log('next')
@@ -65,13 +68,15 @@ function App() {
     return index === 0 ? null : setIndex(index-1)
     
   }
+  
   return (
     <div className="container">
       <h1 id="title">BOREDUMB</h1>
       <div style={{background: topColor}} className="clip-background-top" />
       <div style={{background: botColor}}className="clip-background-bottom" />
       <div className="activity-box" id="activity-box">
-        {loading ? <h1>Loading...</h1> : (<Activity dice={diceColor} top={topColor} bot={botColor} back={prevActivity} newActivity={newActivity} forward={nextActivity} activity={activities.at(index)} />)}
+        {loading ? <h1>Loading...</h1> 
+        : (<Activity dice={diceColor} top={topColor} bot={botColor} back={prevActivity} newActivity={newActivity} forward={nextActivity} activity={activities.at(index)} />)}
       </div>
     </div>
   );
