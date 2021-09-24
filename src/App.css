@@ -1,38 +1,147 @@
-.App {
+#title {
+  color: white;
+  font-family: 'Architects Daughter', cursive;
+  user-select: none;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Libre Baskerville', serif;
   text-align: center;
+  position: relative;
+}
+.clip-background-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #A44200;
+  width: 100vw;
+  height: 100vh;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  z-index: -1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.clip-background-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #175676;
+  width: 100vw;
+  height: 100vh;
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  z-index: -1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#activity-box {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  color: black;
+  box-shadow: 10px 10px 5px;
+  width: 70vw;
+  height: 60vh;
+  justify-content: center;
+  align-items: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.buttons {
+  margin: 5vh 5vw 5vh 5vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.buttons Button {
+  margin: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.forward {
+  background: none;
+  border: none;
+  color: #175676;
+}
+
+.forward:hover {
+  filter: saturate(300%);
+  cursor: pointer;
+}
+
+.submit {
+  background: white;
+  border: none;
+  margin: 0 10px 0 10px;
+  color:purple;
+}
+
+.submit:hover {
+  filter: saturate(300%);
+  cursor: pointer;
+}
+
+.back {
+  background: none;
+  border: none;
+  color: #A44200;
+}
+
+.back:hover {
+  filter: saturate(300%);
+  cursor: pointer;
+}
+
+.activity-attributes {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  text-transform: capitalize;
+  flex-direction: column;
+  user-select: none;
+  padding-top: 5px;
+  border-top: 1px solid #A44200;
+}
+
+.activity-text {
+  margin: 10px;
+  padding-bottom:5px;
+  border-bottom: 1px solid #175676;
+}
+
+.activity-attributes span {
+  margin-top: 5px;
+
+}
+
+@media screen and (min-width: 880px) {
+
+#activity-box {
+  width: 60vw;
+  height: 40vh;
+  font-size: 1.2em;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.buttons {
+   flex-direction: row;
+}
+
+#activity {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+}
+}
+
+@media screen and (min-width: 1400px) {
+  #activity-box {
+    width: 60vw;
+    height: 50vh;
+    font-size: 1.4em;
   }
 }
