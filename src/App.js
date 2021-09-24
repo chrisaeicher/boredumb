@@ -17,8 +17,8 @@ function App() {
   const [botColor, setBotColor] = useState(botColors[0])
   const [diceColor, setDiceColor] = useState(diceColors[0])
   const [activities, setActivities] = useState([{
-    "activity": "Learn how to fold a paper crane",
-    "type": "education",
+    "activity": "Welcome to Boredumb, your cure for boredom. Click a button below to get started.",
+    "type": "",
     "participants": 1,
     "price": 0.1,
     "key": "3136036"
