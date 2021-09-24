@@ -36,7 +36,7 @@ function App() {
   }
 
   const fetchRandActivity = () => {
-    fetch('http://www.boredapi.com/api/activity/')
+    fetch('https://www.boredapi.com/api/activity/')
     .then(res => res.json())
     .then(data => {
       setActivity(data)
