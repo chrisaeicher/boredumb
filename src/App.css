@@ -47,6 +47,8 @@
   height: 60vh;
   justify-content: center;
   align-items: center;
+  padding: 25px 0 25px 0;
+  overflow: hidden;
 }
 .buttons {
   margin: 5vh 5vw 5vh 5vw;
@@ -58,6 +60,10 @@
 
 .buttons Button {
   margin: 5px;
+  background: rgba(255, 255, 255, 0.014);
+  padding: 7px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px gray;
 }
 
 .forward {
@@ -114,6 +120,16 @@
 .activity-attributes span {
   margin-top: 5px;
 
+}
+
+@media screen and (orientation: landscape) {
+  .buttons {
+    flex-direction: row;
+  }
+
+  #activity-box {
+    padding: 15px;
+  }
 }
 
 @media screen and (min-width: 880px) {
